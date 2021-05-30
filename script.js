@@ -1,31 +1,20 @@
-const money = 1000;
-const income = 'услуги'; 
-const addExpenses = 'квартира, коммунальные, интернет';
-const deposit = true;
-const mission = 10000;
-const period = 6;
+const num = 266219;
+const strNum = num.toString();
 
-// Вывести в консоль тип данных значений переменных money, income, deposit;
-console.log(typeof money, income, deposit); 
 
-// Вывести в консоль длину строки addExpenses
-console.log(addExpenses.length);
+// Вывести в консоль произведение (умножение) цифр этого числа
+let sum = 1;
+for (let i = 0; i < strNum.length; i++) {
+     sum *= strNum[i];  
+}
+console.log(sum);
 
-/* Вывести в консоль “Период равен (period) месяцев” и “Цель заработать (mission)
- рублей/долларов/гривен/юани” */
- console.log ('Период равен ' + period + ' месяцев');
- console.log ('Цель заработать ' + mission + ' долларов');
+// Полученный результат возвести в степень 3, используя только 1 оператор (Math.pow не подходит)
+ const st = sum **3;
+ console.log(st);
 
-/* Привести строку addExpenses к нижнему регистру и разбить 
- строку на массив, вывести массив в консоль */
- console.log (addExpenses.split(', '));
-
- // Объявить переменную budgetDay и присвоить дневной бюджет (доход за месяц / 30)
- const budgetDay = 80;
-
- // Вывести в консоль budgetDay
- console.log(budgetDay);
- 
+//  Вывести в консоль первые 2 цифры полученного числа
+ console.log(st.toString().substring(0,2));
  
 
 

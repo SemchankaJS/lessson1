@@ -33,30 +33,41 @@ console.log(amount2);
 
 // Объявить функцию getExpensesMonth. Функция возвращает сумму всех обязательных 
 // расходов за месяц
-const getExpensesMonth = function() {
-     return amount1 + amount2;
+const getExpensesMonth = function(sumOne, sumTwo) {
+     return sumOne + sumTwo;
 };
+
+console.log('сумму всех обязательных расходов за месяц ' + getExpensesMonth(amount1, amount2));
+
+
 
 // Объявить функцию getAccumulatedMonth. Функция возвращает
 //  Накопления за месяц (Доходы минус расходы)
-const getAccumulatedMonth = function() {
-     return money - getExpensesMonth();
+const accum = getExpensesMonth(amount1, amount2);
+const getAccumulatedMonth = function(sum,ras) {
+     return sum - ras;
 };
+console.log('Накопления за месяц  ' + (getAccumulatedMonth(money, accum)));
 
 // Объявить переменную accumulatedMonth и присвоить ей результат
 //  вызова функции getAccumulatedMonth 
-const accumulatedMonth = getAccumulatedMonth();
+const accumulatedMonth = getAccumulatedMonth(money, accum);
+// console.log(accumulatedMonth);
+
  
 // Объявить функцию getTargetMonth. Подсчитывает за какой период будет 
 // достигнута цель, зная результат месячного накопления (accumulatedMonth) 
 // и возвращает результат
-const getTargetMonth = function() {
-     return mission / accumulatedMonth;
+const getTargetMonth = function(summ, acc) {
+          return summ / acc;
 };
+console.log('достигнута цель через ' + getTargetMonth(mission, accumulatedMonth) + ' месяца');
+
+
 
 // budgetDay высчитываем исходя из значения месячного накопления (accumulatedMonth)
 const budgetDay = accumulatedMonth / 30;
-console.log('Цель будет достигнута за ' + Math.ceil(getTargetMonth()) + ' месяца');
+console.log('Цель будет достигнута за ' + Math.ceil(budgetDay) + ' месяца');
 
 // вызов функции getStatusIncome
 const getStatusIncome = function() {

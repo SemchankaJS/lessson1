@@ -1,6 +1,5 @@
 'use strict'
 
-
 let isNumber = function(n) {
      return !isNaN(parseFloat(n)) && isFinite(n)
 };
@@ -12,20 +11,10 @@ console.log(gess);
 
 const getGessNumber = function() {
      if (gess > numberX ) {
-          let j = 0;
-          function data(){
-               j++;
-               if (j === 1) {
-                    return ('Загаданное число меньше');
-               } 
-               data();
-          }
-          data();
-          
+          return ('Загаданное число меньше');
               
      } else if (gess < numberX) {
           return ('Загаданное число больше');
-
              
      } else if (!isNumber(gess)) {
           return ('Введи число!') ; 
@@ -37,8 +26,3 @@ const getGessNumber = function() {
      }
 };
 console.log(getGessNumber());
-
-
-
-
-

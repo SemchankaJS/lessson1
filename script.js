@@ -8,7 +8,10 @@ let money,
     income = 'услуги', 
     addExpenses = 'квартира, коммунальные, интернет',
     mission = 10000,
-    period = 6;
+    period = 6,
+    amount,
+    expenses1,
+    expenses2;
 
 //     1) Переписать функцию start циклом do while
 const start = function() {
@@ -25,63 +28,29 @@ start();
 addExpenses =  prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
 console.log(addExpenses.split(', '));
 
-
 let deposit = confirm('Есть ли у вас депозит в банке?');
 console.log(deposit);
 
-let expenses = [];
-
-let getExpensesMonth1 = function() {
-     let sum = 0;
-     for (let i= 0; i<2; i++) {
-          expenses[i] = prompt('Введите обязательную статью расходов:');
-          sum += +prompt('Во сколько это обойдется?');
-     }
-     console.log(expenses);
-     return sum;
-};
-
-const expenses1 = prompt('Введите обязательную статью расходов 1');
-console.log(expenses1);
-const expenses2 = prompt('Введите обязательную статью расходов 2');
-console.log(expenses2);
 
 // 2) Добавить проверку что введённые данные являются числом,
 //  которые мы получаем на вопрос 'Во сколько это обойдется?’
 //   в функции  getExpensesMonth
-let amount1;
-const getExpenses = function() {
-     amount1 = prompt('Во сколько это обойдется? 1', 20);
-     while(!isNumber(amount1)) {
-          amount1 = prompt('Во сколько это обойдется? 1', 20);
+
+function getExpensesMonth (){
+     let sum = 0;
+     for(let i = 0; i < 1; i++){
+             if (i==0) expenses1 = prompt('Какие обязательные расходы вы планируете в месяце?');
+             else expenses2 = prompt('Какие еще расходы вы планируете в месяце?');
+         do amount = +prompt('Во сколько это обойдется?');
+         while(!isNumber(amount)) sum += amount;
      }
+     return sum;
 };
-getExpenses();
-
-console.log(amount1);
-
-let amount2;
-const getExpenses2 = function() {
-     amount2 = prompt('Во сколько это обойдется? 2', 20);
-     while(!isNumber(amount2)) {
-          amount2 = prompt('Во сколько это обойдется? 2', 30);
-     }
-};
-getExpenses2();
-console.log(amount2);
+ getExpensesMonth ();
 
 
 
-const getExpensesMonth = function(sumOne, sumTwo) {
-     return sumOne + sumTwo;
-};
-
-console.log('сумму всех обязательных расходов за месяц ' + getExpensesMonth(amount1, amount2));
-
-
-
-
-const accum = getExpensesMonth(amount1, amount2);
+const accum = getExpensesMonth(amount);
 const getAccumulatedMonth = function(sum,ras) {
      return sum - ras;
 };
@@ -98,9 +67,8 @@ const getTargetMonth = function(summ, acc) {
           return summ / acc;
  
 };
-
 if (getTargetMonth(mission, accumulatedMonth) >= 0) {
-     console.log ('достигнута цель через ' + getTargetMonth(mission, accumulatedMonth) + ' месяца');
+     console.log ('достигнута цель через ' + Math.floor(getTargetMonth(mission, accumulatedMonth)) + ' месяца');
 } else {
      console.log ('Цель не будет достигнута');
 }   
@@ -123,4 +91,3 @@ const getStatusIncome = function() {
      }
 }
 console.log(getStatusIncome());
- 

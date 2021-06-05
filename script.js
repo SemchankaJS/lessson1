@@ -38,7 +38,7 @@ console.log(deposit);
 
 function getExpensesMonth (){
      let sum = 0;
-     for(let i = 0; i < 1; i++){
+     for(let i = 0; i < 2; i++){
              if (i==0) expenses1 = prompt('Какие обязательные расходы вы планируете в месяце?');
              else expenses2 = prompt('Какие еще расходы вы планируете в месяце?');
          do amount = +prompt('Во сколько это обойдется?');
@@ -46,11 +46,9 @@ function getExpensesMonth (){
      }
      return sum;
 };
- getExpensesMonth ();
 
 
-
-const accum = getExpensesMonth(amount);
+const accum = getExpensesMonth();
 const getAccumulatedMonth = function(sum,ras) {
      return sum - ras;
 };

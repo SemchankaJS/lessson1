@@ -1,45 +1,39 @@
  'use strict'
 
-let isNumber = function(n) {
-     return !isNaN(parseFloat(n)) && isFinite(n)
-};
+// let isNumber = function() {
+//      return !isNaN(parseFloat()) && isFinite();
+// };
 
 let randomNumber = function () {
-     let whyNum;
+     let whyNum,
+         number = 45, 
+         v;
+       
      let getRandomNumber = function () {
-          do {
-               whyNum = prompt('Угадай число от 1 до 100');
-          }
-               while (!isNumber(whyNum) || whyNum === '' || whyNum === null);
-     };
-     getRandomNumber();
-     console.log(whyNum);
-
-     const randomNumber = function() {
-          console.log('Число бота: ' + (Math.floor(100*Math.random())+1));
-     };
-    
-     const num = randomNumber();
-     
-     
-     const getGessNumber = function() {
-          if (whyNum > num ) {
-               return ('Загаданное число меньше');
-                   
-          } else if (whyNum < num) {
-               return ('Загаданное число больше');
-                  
-          } else if (!isNumber(num)) {
-               return ('Введи число!') ; 
-               
-          } else if (whyNum === null) {
-               return ('Игра окончена');
-          } else if (whyNum === num) {
-               return ('Поздравляю, Вы угадали!!!');
-          }
-     };
-     console.log(getGessNumber());
           
+               whyNum = +prompt('Угадай число от 1 до 100');
+         
      
-}
+               const getGessNumber = function() {
+                    if (whyNum == number) {
+                         return v = true; 
+                    } else { 
+                         if (whyNum < number) {
+                              alert ('Загаданное число больше');
+                         } else if (whyNum > number) {
+                              alert('Загаданное число меньше') ; 
+                         } else if (!number) {
+                              alert ('Введи число!');
+                         } 
+                    }
+               }          
+          getGessNumber();             
+          if (v === true) {
+               alert ('Поздравляю, Вы угадали!!!');
+          } else {
+               getRandomNumber();
+          }         
+     } 
+     getRandomNumber();        
+}      
 randomNumber();

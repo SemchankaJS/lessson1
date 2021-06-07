@@ -31,6 +31,8 @@ let  appData = {
      },
 
      getExpensesMonth: function() {
+          let expenses1, 
+              expenses2;
           let sum = 0;
           let amount;
                for(let i = 0; i <2 ; i++){
@@ -70,16 +72,7 @@ let  appData = {
 };
 appData.asking();
 
-
-console.log(appData);
-
-let expenses1, 
-    expenses2;
 const expensesMonth = appData.getExpensesMonth();
-
-
-// console.log (' appData.expensesMonth ',  appData.expensesMonth);
-// console.log('getAccumulatedMonth(): ', appData.getAccumulatedMonth);
 
 const budgetDay = appData.getAccumulatedMonth() / 30;
 console.log('budgetDay: ', budgetDay);

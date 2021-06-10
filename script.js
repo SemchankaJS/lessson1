@@ -2,7 +2,12 @@ let isNumber = function(n) {
     return !isNaN(parseFloat(n)) && isFinite(n)
 };
 
-let money = +prompt('Укажите Ваш ежемесячный доход'), 
+let money;
+    do {
+        money = +prompt('Укажите Ваш ежемесячный доход'); 
+    }
+    while(!isNumber(money));
+ 
     appData = {
         budget: money,
         income: {},
@@ -32,12 +37,23 @@ let money = +prompt('Укажите Ваш ежемесячный доход'),
                 while(!isNumber(cashIncome));
                 appData.income[itemIncome] = cashIncome;
             }
-
-            appData.addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую').toLocaleLowerCase().split(', '),
+            appData.addExpenses;
+            do {
+                appData.addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую').toLocaleLowerCase().split(', ');
+            }
+            while(isNumber(appData.addExpenses));
+            
             appData.deposit = confirm('Есть ли у вас депозит в банке?');
+                let keyQuestion,valueQuestion;
             for (let i = 0; i < questionAmount; i++){
-                let keyQuestion = prompt('Какие обязательные расходы вы планируете в месяце?');
-                let valueQuestion = +prompt('Во сколько это обойдется?');
+                do {
+                    keyQuestion = prompt('Какие обязательные расходы вы планируете в месяце?');
+                }
+                while(isNumber(keyQuestion));
+                do {
+                    valueQuestion = prompt('Во сколько это обойдется?');    
+                }
+                while(!isNumber(valueQuestion)); 
                 appData.expenses[keyQuestion] = valueQuestion;
             }
         },
@@ -99,4 +115,4 @@ console.log('Наша программа включает в себя данны
 for(let key in appData){
     console.log(key + ' ' + appData[key]);
 }
-console.log(appData.addExpenses.toLocaleLowerCase.toUpperCase[0] );
+// console.log(appData.addExpenses(addExpenses.split(', ').map(word => { return word[2].toUpperCase() + word.slice(1)}));
